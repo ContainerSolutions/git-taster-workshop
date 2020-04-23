@@ -1,72 +1,21 @@
-mkdir -p gtw_pushing
-cd gtw_pushing
-mkdir git_origin
-cd git_origin
-git init
-echo 'first commit' > file1
-cat file1
-git add file1
-git commit -am file1
+git clone https://github.com/YOURUSERNAME/git-taster-session
+cd git-taster-session
+git checkout -b myfirstbranch
+git status
+echo 'my change to the README' >> README.md
+git commit -am 'my change to the README'
+git push -u origin myfirstbranch
+echo 'another change to the README' >> README.md
+git commit -am 'another change to the README'
+git push -u origin myfirstgitbranch:myfirstgitbranch
+git push -u origin myfirstgitbranch:
+git branch tmpbranch
+git checkout tmpbranch
+echo 'a temp change on tmpbranch' >> README.md
+git commit -am 'a temp change on tmpbranch'
+git push origin tmpbranch:tmpbranch
+git push origin :tmpbranch
+git branch -d mybranch
+git branch -d abranch
 cd ..
-git clone git_origin git_clone
-cd git_origin
-git branch -a -v
-cd ../git_clone
-git branch -a -v
-git checkout -b abranch
-echo 'cloned abranch commit' >> file1
-cat file1
-git commit -am 'cloned abranch commit'
-git push origin
-git push origin abranch
-cd ..
-rm -rf git_origin git_clone
-mkdir git_origin
-cd git_origin
-git init
-echo 'first commit' > file1
-git add file1
-cat file1
-git commit -am file1
-cd ..
-git clone git_origin git_clone
-cd git_clone
-git checkout -b abranch
-echo 'cloned abranch commit' >> file1
-git commit -am 'cloned abranch commit'
-cd ../git_origin
-git checkout -b abranch
-echo 'origin abranch commit' >> file1
-cat file1
-git commit -am 'origin abranch commit'
-cd ../git_clone
-git push origin abranch:abranch
-git fetch origin
-git branch -v -a
-git log --oneline --graph --decorate --all
-git merge remotes/origin/abranch
-cd ..
-rm -rf git_origin git_clone
-mkdir git_origin
-cd git_origin
-git init
-echo 'first commit' > file1
-git add file1
-git commit -am file1
-cd ..
-git clone git_origin git_clone
-cd git_origin
-git checkout -b abranch
-echo 'origin abranch commit' >> file1
-git commit -am 'cloned abranch commit'
-git branch -a
-cd ../git_clone
-git branch -a
-git remote -v
-git fetch origin
-git branch -a
-git branch
-git checkout abranch
-git branch -a -vv
-cd ..
-rm -rf gtw_pushing
+rm -rf git-taster-session
